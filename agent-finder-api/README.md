@@ -157,6 +157,88 @@ POST /api/agents/find-closest
 }
 ```
 
+#### Find Closest Agent by Road
+
+Find the single closest available agent to a given address.
+
+```http
+POST /api/agents/find-closest-by-road
+```
+
+**Request Body:**
+```json
+{
+  "houseAddress": "40 Marshal Baghramyan Ave, Yerevan 0019",
+  "timeSlot": {
+    "day": "monday",
+    "time": "14:00"
+  }
+}
+```
+
+**Parameters:**
+- `houseAddress` (required): Target address for search
+- `timeSlot` (optional): Filter by agent availability
+  - `day`: monday-sunday
+  - `time`: HH:MM (24-hour format)
+- `maxDistance` (optional): Search radius in meters (default: 50000)
+- `includeBuildingInfo` (optional): Include property details (default: false)
+
+**Response:**
+```json
+{
+    "success": true,
+    "agent": {
+        "id": "68c96ef97afec78e4e46f2b0",
+        "name": "Sona Grigoryan",
+        "phone": "+374-55-456-789",
+        "address": {
+            "street": "12 Sayat-Nova Avenue",
+            "city": "Yerevan",
+            "state": "Yerevan",
+            "zipCode": "0001",
+            "country": "Armenia"
+        },
+        "straightLineDistanceKm": 1.27,
+        "roadDistanceKm": 5.45,
+        "travelTimeMinutes": 14,
+        "isDistanceEstimated": false,
+        "availableTimeSlots": [
+            {
+                "day": "monday",
+                "startTime": "14:00",
+                "endTime": "15:00",
+                "duration": "1 hour",
+                "available": true
+            },
+            {
+                "day": "monday",
+                "startTime": "13:00",
+                "endTime": "14:00",
+                "duration": "1 hour",
+                "available": true
+            },
+            {
+                "day": "monday",
+                "startTime": "15:00",
+                "endTime": "16:00",
+                "duration": "1 hour",
+                "available": true
+            }
+        ]
+    },
+    "searchInfo": {
+        "houseAddress": "40 Marshal Baghramyan Ave, Yerevan 0019, Armenia",
+        "houseCoordinates": {
+            "latitude": 40.1935253,
+            "longitude": 44.5041588
+        },
+        "searchRadius": 50000
+    }
+}
+```
+
+
 #### Find Nearby Agents
 
 Find multiple agents within a specified radius.
