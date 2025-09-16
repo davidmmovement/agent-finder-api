@@ -44,7 +44,7 @@ A comprehensive Node.js API for finding the closest available real estate agents
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/agent-finder-api.git
+git clone https://github.com/davidmmovement/agent-finder-api.git
 cd agent-finder-api
 
 # Install dependencies
@@ -621,7 +621,7 @@ MIT License - see LICENSE file for details.
 
 For questions or issues:
 
-1. Check existing [Issues](https://github.com/yourusername/agent-finder-api/issues)
+1. Check existing [Issues](https://github.com/davidmmovement/agent-finder-api/issues)
 2. Create a new issue with detailed description
 3. Include request/response examples and error messages
 4. Specify your environment (Node.js version, MongoDB version, etc.)
